@@ -16,4 +16,4 @@ jobs:
 
       - name: Send email
         run: |
-          echo "Subject: Daily Message" | sendmail your_email@example.com
+          echo "Subject: Daily Message" | sendmail raydingwang@gmail.com
