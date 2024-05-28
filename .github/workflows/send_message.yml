@@ -1,7 +1,23 @@
-- name: Send email every 30 seconds
-  run: |
-    for i in {1..2}; do
-      echo "Sending email at $(date)";
-      echo "Subject: Half-minute Message" | sendmail raydingwang@gmail.com;
-      sleep 30;
-    done
+name: Send Message
+
+on:
+  schedule:
+    - cron: '* * * * *' # 每分鐘觸發一次
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Sendmail
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sendmail
+
+      - name: Send email every 30 seconds
+        run: |
+          for i in {1..2}; do
+            echo "Sending email at $(date)";
+            echo "Subject: Half-minute Message" | sendmail raydingwang@gmail.com;
+            sleep 30;
+          done
