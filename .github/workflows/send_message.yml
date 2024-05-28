@@ -1,0 +1,19 @@
+name: Send Message
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # 每天早上8點觸發
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Sendmail
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sendmail
+
+      - name: Send email
+        run: |
+          echo "Subject: Daily Message" | sendmail your_email@example.com
