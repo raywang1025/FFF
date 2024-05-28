@@ -17,6 +17,6 @@ jobs:
       - name: Send email every 30 seconds
         run: |
           for i in {1..2}; do
-            echo "Subject: Half-minute Message" | sendmail your_email@example.com;
+            echo "Subject: Half-minute Message" | sendmail raydingwang@gmail.com;
             sleep 30;
           done
